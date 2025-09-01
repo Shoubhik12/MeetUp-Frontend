@@ -43,7 +43,7 @@ function App() {
                        <option value="Both" >Both</option>
                        <option value="Offline">Offline</option>
                        <option value="Online">Online</option>
-          </select>
+                       </select>
               </div>
           </div>  
           <div className=" row py-4 mx-3" >

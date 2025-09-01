@@ -25,8 +25,14 @@ const Details=()=>{
                     <p><strong>Venue:</strong> {filteredData.venue}</p>
                     <p><strong>Date and Timings:</strong> {new Date(filteredData.dateAndTimings).toLocaleTimeString()}    {new Date(filteredData.dateAndTimings).toLocaleDateString()}</p>
                     <p><strong>Price:</strong> {filteredData.price}</p>
-                    <p>{filteredData.speakers.map(dat=><img src="https://placehold.co/300x200" className="px-2" alt="speakers" />)}  </p>
-                    <p><strong>Speakers:</strong> {filteredData.speakers.join(",")}</p>
+                    <p><strong>Speakers:</strong></p>
+                    <div className="row px-2">
+                        {filteredData.speakers.map(dat=><div className="col my-1" >
+                         <img src="https://placehold.co/300x200"  alt="speakers" />
+                         <p>{dat}</p>                
+                    </div>)}  
+                    </div>
+
                     <p><strong>Event Type:</strong> {filteredData.eventType}</p>
               </div>}
         </div>
