@@ -16,7 +16,7 @@ const Details=()=>{
               <a href="/" className="btn btn-danger" >Home</a>
               {!loading && data && <div className="card text-center px-2 py-2">
                     <h3>{filteredData.title}</h3>
-                    <img src={filteredData.img} alt="img" />
+                    <img src={filteredData.img} alt="img" height={"500px"} />
                     <p><strong>Host:</strong> {filteredData.host}</p>
                     <p><strong>Details:</strong> {filteredData.details}</p>
                     <p><strong>Dress Code:</strong> {filteredData.dressCode}</p>
