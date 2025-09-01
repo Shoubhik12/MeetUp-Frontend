@@ -12,7 +12,7 @@ function App() {
   const {data,loading,error} = useFetch("https://meet-up-backend-eight.vercel.app/meets")
   let filteredData = data? data : []
   if( !loading && search!=""){
-       filteredData = search!=""?data.filter((dat)=> dat.title==search  ):data
+       filteredData = search!=""?data.filter((dat)=> dat.title.includes(search)  ):data
   }
 
   if(!loading && tag!=""){
@@ -52,7 +52,7 @@ function App() {
                        <div className="  card  px-3 py-3 my-3 center-align " style={{height:"500px"}} >
                           <img src={data.img} alt={`img${data.title}`} height={"300px"}  />
                           <h4>{data.title}</h4>
-                          <p>{data.dateAndTimings} <br /> <strong>{data.eventType}</strong> </p>
+                          <p>{new Date(data.dateAndTimings).toLocaleTimeString()}    {new Date(data.dateAndTimings).toLocaleDateString()} <br /> <strong>{data.eventType}</strong> </p>
                           <a href={`meet/${data._id}`}  className="btn btn-primary">View Details</a>
                       </div>
                  </div>
