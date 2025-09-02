@@ -16,7 +16,8 @@ function App() {
   }
 
   if(!loading && tag!=""){
-     filteredData = tag!=""? data.filter((dat)=>dat.tags.includes(tag) || dat.tags.includes(tag.toUpperCase()) ):data
+     filteredData = tag!=""? data.filter((dat)=>dat.tags.includes(tag) || dat.tags.includes(tag.toUpperCase()) || dat.tags.some((t) => t.toLowerCase().includes(tag.toLowerCase()))
+ ):data
      console.log(filteredData)
   }
 
@@ -58,6 +59,9 @@ function App() {
                  </div>
                 
                ))
+             }
+             {
+               !loading && filteredData.length==0 && <p>No Data found</p>
              }
           </div>
       </main>
