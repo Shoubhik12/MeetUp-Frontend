@@ -12,11 +12,11 @@ function App() {
   const {data,loading,error} = useFetch("https://meet-up-backend-eight.vercel.app/meets")
   let filteredData = data? data : []
   if( !loading && search!=""){
-       filteredData = search!=""?data.filter((dat)=> dat.title.includes(search)  ):data
+       filteredData = search!=""?data.filter((dat)=> dat.title.includes(search) || dat.title.includes(search.charAt(0).toLocaleUpperCase())  ):data
   }
 
   if(!loading && tag!=""){
-     filteredData = tag!=""? data.filter((dat)=>dat.tags.includes(tag)):data
+     filteredData = tag!=""? data.filter((dat)=>dat.tags.includes(tag) || dat.tags.includes(tag.toUpperCase()) ):data
      console.log(filteredData)
   }
 
